@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Research Progress Website
 
 A [workflowr][] project template for keeping track of your research progress.
@@ -30,3 +31,7 @@ cd wflowr_template
   Basically, `Settings-Pages-main-docs`.
 
 
+=======
+# marcus-workflowr
+LiuLab workflowr
+>>>>>>> 0cf7368a4584679b5e4659414ad1044a8fbe5c09
