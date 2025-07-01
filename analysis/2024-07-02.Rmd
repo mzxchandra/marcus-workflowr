@@ -1,0 +1,22 @@
+---
+title: "2024-07-02: SNP mediation testing"
+author: "Marcus"
+date: "2024-07-01"
+output: workflowr::wflow_html
+---
+
+## Goals
+
+- Setup pipeline for SNP → gene mediation using GBAT & DACT.
+
+## Notes
+
+- Checked libgit2 error → switched to Conda env for smoother install.
+- Verified `wflow_publish()` works after Git config.
+
+## Code
+
+```{r setup, include=FALSE}
+library(workflowr)
+library(tidyverse)
+```
