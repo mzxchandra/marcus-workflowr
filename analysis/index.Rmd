@@ -1,23 +1,18 @@
 ---
-title: "**Research Progress Template (Liu Lab)**"
+title: "Marcus Research Log"
+author: "Marcus"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
 site: workflowr::wflow_site
-output:
-  workflowr::wflow_html:
-    toc: false
-editor_options:
-  chunk_output_type: console
 ---
-
-<center>
-![](index_image.jpeg){width=100%}
-</center>
-
 
 ## Welcome
 
-Welcome to my research website.
+This is my research log tracking my daily progress on COTA & mediation analyses.
 
+## Log Entries
 
-## Topics
-
-- Progress in 2022. [click](2022.html)
+| Date       | Entry                    |
+|------------|--------------------------|
+| 2024-07-01 | [View](2024-07-01.html)  |
+| 2024-07-02 | [View](2024-07-02.html)  |
