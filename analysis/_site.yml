@@ -1,26 +1,12 @@
 name: "Research Progress"
 output_dir: ../docs
 navbar:
-  title: "Research Progress"
+  title: "Marcus Research Log"
   left:
-  - text: Home
-    href: index.html
-  - text: Progress
-    menu:
-    - text: 2022
-      href: 2022.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
-  right:
-  - icon: fa-github
-    text: Source code
-    href: https://github.com/liliw-w/wflowr_template
-output:
-  workflowr::wflow_html:
-    toc: yes
-    toc_float: yes
-    theme: cosmo
-    highlight: textmate
-    css: style.css
+    - text: "Home"
+      href: index.html
+    - text: "2024-07-01"
+      href: 2024-07-01.html
+    - text: "2024-07-02"
+      href: 2024-07-02.html
+
