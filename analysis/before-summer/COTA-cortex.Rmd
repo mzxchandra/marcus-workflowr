@@ -1,0 +1,97 @@
+---
+title: "Prior to summer: Cortex COTA SNP Mediation"
+author: "Marcus Chandra"
+date: "2025-07-01"
+output: workflowr::wflow_html
+site: workflowr::wflow_site
+---
+
+## Context
+
+In this analysis, I applied the Gene-Gene case COTA mediation framework to a GTEx brain tissue dataset.
+We use WES burden test results from the UK Biobank (UKBB) for our Gene 2 candidates.
+We use an eQTL matrix from GTEx to detect trans effects from peripheral Gene 1 to Gene 2.
+
+Key steps:
+- Prepare UKBB wes p-values
+- Load and clean the trans eQTL matrix.
+- Run COTA using `med_gene()` function and `calc_pair.gene()` to match gene pairs for visualization.
+- Visualize the network of significant mediation pairs.
+
+
+```{r setup, include=FALSE}
+library(qvalue)
+library(data.table)
+library(stringr)
+library(plyr)
+library(tidyr)
+library(tidyverse)
+library(readr)
+library(gprofiler2)
+library(VennDiagram)
+library(igraph)
+library(COTA)
+library(biomaRt)
+library(rsnps)
+```
+
+---
+
+## ✅ **5. Code chunks**
+
+---
+
+**5.1. Load UKBB WES p-values**
+```{r load-ukbb}
+##https://www.ebi.ac.uk/gwas/studies/GCST90081747
+UKBB_wes = readr::read_tsv('GCST90081747_buildGRCh38.tsv')
+head(UKBB_wes)
+colnames(UKBB_wes)
+UKBB_wesM3.1 = UKBB_wes[UKBB_wes$effect_allele=='M3.1',] 
+head(UKBB_wesM3.1)
+out.pheno <- strsplit(as.character(UKBB_wesM3.1$Name),'\\.') 
+info.out.pheno = do.call(rbind, out.pheno)
+out.new <- strsplit(as.character(info.out.pheno[,1]),'\\(')
+info.out.new = do.call(rbind, out.new)
+UKBB_wesM3.1$Name = info.out.new[,1]
+UKBB_wesM3.1_new = UKBB_wesM3.1[!UKBB_wesM3.1$Name%in%names(which(table(UKBB_wesM3.1$Name)!=1)),]
+head(UKBB_wesM3.1_new)
+
+cau = data.frame(pval = UKBB_wesM3.1_new$p_value)
+rownames(cau) = UKBB_wesM3.1_new$Name 
+p.wgs <- cau[,1]
+p.wgs <- na.omit(p.wgs)
+names(p.wgs) = UKBB_wesM3.1_new$Name 
+```
+
+**5.2. Load eQTL matrix**
+```{r load-eqtl}
+p.trans <- read.delim('cortex_pval_matrix.txt', sep = '\t')
+threshold = 0.05/nrow(cau)
+eta.wgs = threshold
+ref.table = read.delim('gene_position.txt', sep = '\t')
+ref.table.keep <- ref.table[ref.table$type %in% c('lincRNA', 'protein_coding'),]
+ref.table.keep <- ref.table.keep[!(ref.table.keep$Chromosome %in% c('chrM', 'chrX', 'chrY')),]
+ref.table.keep <-ref.table.keep[!duplicated(ref.table.keep$gene_name),]
+out.ref <- strsplit(as.character(ref.table.keep$gene_name),'\\.')
+out.ref.new = do.call(rbind, out.ref)
+ref.table.keep$gene_name = out.ref.new[,1]
+candidate = dput(colnames(p.trans))
+```
+
+**5.3. Run COTA mediation**
+```{r run-cota}
+cortex_result = med_gene(p.trans, p.wgs, ref.table, candidate, target.fdr=0.1, dist=5e6, gene1.type = 'Gene')
+```
+
+**5.4. Visualize mediation pairs**
+```{r visualize-pairs}
+cortex_result.pair = calc_pair.gene(cortex_result$mat.sig, cortex_result$mat.p,p.wgs, cortex_result$gene1, ref.table.keep,
+                                     eta.wgs=threshold)pic_dir = getwd()
+gen_fig_def(cortex_result.pair$gene.pair, p.wgs, eta.wgs, pic_dir)
+```
+
+## ✅ **6. Add session info**
+```{r session-info}
+sessionInfo()
+```
