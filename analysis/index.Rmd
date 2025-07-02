@@ -14,7 +14,7 @@ This is my research log tracking my daily progress on COTA & mediation analyses.
 
 | Date       | Entry                    |
 |------------|--------------------------|
-| 2024-07-01 | [GTEx Brain Cortex](./analysis/before-summer/COTA-cortex.html): Applied the Gene-Gene COTA mediation framework using GTEx and UKBB. |
+| 2024-07-01 | [GTEx Brain Cortex](./before-summer/COTA-cortex.html): Applied the Gene-Gene COTA mediation framework using GTEx and UKBB. |
 | 2024-07-01 | [View](2024-07-01.html)  |
 | 2024-07-01 | [View](2024-07-01.html)  |
 | 2024-07-02 | [View](2024-07-02.html)  |
