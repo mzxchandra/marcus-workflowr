@@ -16,7 +16,4 @@ output: workflowr::wflow_html
 
 ## Code
 
-```{r setup, include=FALSE}
-library(workflowr)
-library(tidyverse)
-```
+- Load libraries `workflowr` and `tidyverse`.
