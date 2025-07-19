@@ -17,7 +17,4 @@ site: workflowr::wflow_site
 
 ## Code
 
-```{r setup, include=FALSE}
-library(workflowr)
-library(tidyverse)
-```
+- Load libraries `workflowr` and `tidyverse`.
