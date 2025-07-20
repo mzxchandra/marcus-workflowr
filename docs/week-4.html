@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="author" content="Marcus" />
+<meta name="date" content="2024-07-03" />
+<title>Week 4</title>
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Week 4</h1>
+
+<p>COTA with meta UKBB Tian</p>
+
+<p>Sense checking to make sure that the meta-analyzed p-values are normal under the null</p>
+
+<p>NO significant WES genes in this meta analysis. Checked 0.05/20000, and also 0.05 / 15604 (as there are 15604 genes in the meta).</p>
+
+<p><strong>INTERSECTION BETWEEN COTA and standalone WES significant genes (non-meta corrected p-values):</strong><br/>
+"RAPGEF4" "ALOX5"   "SYNM"    "HECTD4"</p>
+
+<p><strong>Tables of the core genes found by each COTA analysis, and the number of peripheral genes they mediate</strong></p>
+
+<h2>Frontal</h2>
+<table>
+<tr><th>gene2</th><th>num_gene1s</th></tr>
+<tr><td>RALGAPA1</td><td>24</td></tr>
+<tr><td>SYNM</td><td>12</td></tr>
+<tr><td>SH3D19</td><td>7</td></tr>
+<tr><td>RGS9</td><td>6</td></tr>
+<tr><td>SLC26A9</td><td>6</td></tr>
+<tr><td>ALOX5</td><td>5</td></tr>
+<tr><td>GHR</td><td>4</td></tr>
+<tr><td>SLC4A1AP</td><td>4</td></tr>
+<tr><td>PMPCA</td><td>3</td></tr>
+<tr><td>POLE</td><td>3</td></tr>
+<tr><td>RAPGEF4</td><td>2</td></tr>
+<tr><td>TMEM104</td><td>2</td></tr>
+<tr><td>PHKG1</td><td>1</td></tr>
+<tr><td>PTPRH</td><td>1</td></tr>
+</table>
+
+<h2>Cortex</h2>
+<table>
+<tr><th>gene2</th><th>num_gene1s</th></tr>
+<tr><td>RALGAPA1</td><td>15</td></tr>
+<tr><td>SYNM</td><td>12</td></tr>
+<tr><td>PMPCA</td><td>10</td></tr>
+<tr><td>SH3D19</td><td>9</td></tr>
+<tr><td>SLC26A9</td><td>5</td></tr>
+<tr><td>POLE</td><td>4</td></tr>
+<tr><td>ALOX5</td><td>3</td></tr>
+<tr><td>SLC4A1AP</td><td>3</td></tr>
+<tr><td>TMEM104</td><td>3</td></tr>
+<tr><td>GHR</td><td>2</td></tr>
+<tr><td>RGS9</td><td>2</td></tr>
+<tr><td>PHKG1</td><td>1</td></tr>
+<tr><td>RAPGEF4</td><td>1</td></tr>
+<tr><td>SSH2</td><td>1</td></tr>
+</table>
+
+<h2>ROSMAP</h2>
+<table>
+<tr><th>gene2</th><th>num_gene1s</th></tr>
+<tr><td>RALGAPA1</td><td>11</td></tr>
+<tr><td>ALOX5</td><td>10</td></tr>
+<tr><td>SLC4A1AP</td><td>8</td></tr>
+<tr><td>POLE</td><td>6</td></tr>
+<tr><td>SYNM</td><td>6</td></tr>
+<tr><td>RGS9</td><td>4</td></tr>
+<tr><td>SH3D19</td><td>4</td></tr>
+<tr><td>SLC26A9</td><td>3</td></tr>
+<tr><td>TMEM104</td><td>2</td></tr>
+<tr><td>GHR</td><td>1</td></tr>
+<tr><td>HECTD4</td><td>1</td></tr>
+<tr><td>ITGA11</td><td>1</td></tr>
+<tr><td>PMPCA</td><td>1</td></tr>
+<tr><td>PTPRH</td><td>1</td></tr>
+<tr><td>SSH2</td><td>1</td></tr>
+</table>
+
+<h2>Brain Proteome COTA results stand out</h2>
+<p>All the candidate SNPs ended up being annotated as the same 3 gene regions. Also only 3 gene 2s were found as COTA significant mediators.<br/>
+Noteworthy gene 2s: RALGAPA1, SYNM, ALOX5, HECTD4</p>
+<p>RALGAPA1 is part of the RalA pathway. Deficiency in the gene and defects in the pathway lead to neurodevelopmental disorders <a href="https://www.sciencedirect.com/science/article/pii/S0002929720300021#:~:text=Bi%2Dallelic%20Variants%20in%20RALGAPA1,Spasms%2C%20and%20Feeding%20Abnormalities%20%2D%20ScienceDirect">source</a></p>
+<p>SYNM encodes the protein synemin, is involved in several cellular pathways related to cell structure, signaling, and disease</p>
+<p>ALOX5 plays a crucial role in the leukotriene pathway, a significant contributor to inflammation and inflammatory diseases. ALOX5 is found to be a drug target for delaying onset of AD <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4245048/#:~:text=These%20results%20highlight%20the%20novel,exposed%20to%20this%20risk%20factor">source</a></p>
+<p>HECTD4 encodes a E3 ubiquitin ligase protein. Variants cause neurodegenerative disorders <a href="https://pubmed.ncbi.nlm.nih.gov/36401616/">source</a></p>
+
+</div>
+</body>
+</html>

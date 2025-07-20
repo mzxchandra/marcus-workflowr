@@ -1,0 +1,130 @@
+---
+title: "Week 4"
+author: "Marcus"
+date: "2024-07-03"
+output: workflowr::wflow_html
+---
+
+COTA with meta UKBB Tian
+
+Sense checking to make sure that the meta-analyzed p-values are normal under the null
+
+NO significant WES genes in this meta analysis.
+Checked 0.05/20000, and also 0.05 / 15604 (as there are 15604 genes in the meta).
+
+INTERSECTION BETWEEN COTA and standalone WES significant genes (non-meta corrected p-values):
+"RAPGEF4" "ALOX5"   "SYNM"    "HECTD4" 
+
+Tables of the core genes found by each COTA analysis, and the number of peripheral genes they mediate
+
+Frontal
+
+gene2
+num_gene1s
+RALGAPA1
+24
+SYNM
+12
+SH3D19
+7
+RGS9
+6
+SLC26A9
+6
+ALOX5
+5
+GHR
+4
+SLC4A1AP
+4
+PMPCA
+3
+POLE
+3
+RAPGEF4
+2
+TMEM104
+2
+PHKG1
+1
+PTPRH
+1
+
+Cortex 
+
+gene2
+num_gene1s
+RALGAPA1
+15
+SYNM
+12
+PMPCA
+10
+SH3D19
+9
+SLC26A9
+5
+POLE
+4
+ALOX5
+3
+SLC4A1AP
+3
+TMEM104
+3
+GHR
+2
+RGS9
+2
+PHKG1
+1
+RAPGEF4
+1
+SSH2
+1
+
+ROSMAP 
+
+gene2
+num_gene1s
+RALGAPA1
+11
+ALOX5
+10
+SLC4A1AP
+8
+POLE
+6
+SYNM
+6
+RGS9
+4
+SH3D19
+4
+SLC26A9
+3
+TMEM104
+2
+GHR
+1
+HECTD4
+1
+ITGA11
+1
+PMPCA
+1
+PTPRH
+1
+SSH2
+1
+
+
+Brain Proteome COTA results stand out 
+
+
+All the candidate SNPs ended up being annotated as the same 3 gene regions. Also only 3 gene 2s were found as COTA significant mediators.
+Noteworthy gene 2s: RALGAPA1, SYNM, ALOX5, HECTD4
+RALGAPA1 is part of the RalA pathway. Deficiency in the gene and defects in the pathway lead to neurodevelopmental disorders https://www.sciencedirect.com/science/article/pii/S0002929720300021#:~:text=Bi%2Dallelic%20Variants%20in%20RALGAPA1,Spasms%2C%20and%20Feeding%20Abnormalities%20%2D%20ScienceDirect
+SYNM encodes the protein synemin, is involved in several cellular pathways related to cell structure, signaling, and disease
+ALOX5 plays a crucial role in the leukotriene pathway, a significant contributor to inflammation and inflammatory diseases. ALOX5 is found to be a drug target for delaying onset of AD https://pmc.ncbi.nlm.nih.gov/articles/PMC4245048/#:~:text=These%20results%20highlight%20the%20novel,exposed%20to%20this%20risk%20factor.
+HECTD4 encodes a E3 ubiquitin ligase protein. Variants cause neurodegenerative disorders https://pubmed.ncbi.nlm.nih.gov/36401616/
