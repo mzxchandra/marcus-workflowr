@@ -1,0 +1,55 @@
+---
+title: "Mon Aug 11: FDA Antidepressants Enrichment Analysis"
+author: "Marcus"
+date: "2024-08-11"
+output: workflowr::wflow_html
+---
+
+## Task
+
+- Run the enrichment test using the gene × drug lists in Tian supp table 17a-c.
+- Their drug lists are narrower because they likely only filtered on a subset of drug types (e.g., antidepressants) and thus have ~200 genes that are drug targets, whereas we looked at all drug hits and therefore found ~2800 genes that are drug targets.
+- The task now is to redo the enrichment analysis only focusing on antidepressant drug targets.
+- Do this for both peripheral and core genes.
+
+## Issues with querying DGIdb
+
+I modified my DGIdb query to match the drug names provided in the supplementary table; however, I still got fewer gene hits than the supp table. Possible reasons are that the exact naming of the drug is different in the spreadsheet vs. the DGIdb, or that since 2021 there have been changes (updated names, removed drugs from database, etc.).
+
+So I just directly used the genes with the FDA antidepressant drug overlaps sheet (17c) for reproducibility.
+
+- 5 COTA genes overlapped, out of the 170 total genes that were antidepressant targets.
+- This meant an odds ratio of 1.62 (COTA core genes were 62% more likely to be antidepressant drug targets).
+- P value of 0.2.
+
+## Issues with analysis
+
+The universe of genes Tian et al. used for the FDA step is different from my universe that I found by taking all the candidate gene2s from COTA.
+
+- Check if COTA used rownames or colnames as gene2 candidates.
+- I verified that COTA uses rownames as gene2, so our COTA analyses were done correctly.
+- I went back and checked our p-trans matrices and found that there were 2939 genes that Tian et al. analyzed that weren’t in our matrices (so COTA didn’t analyze these).
+
+Here’s the thorough analysis of the gene universes:
+
+- 12,508 genes shared by both Tian and COTA.
+- 4,233 genes are Tian only.
+- 1,732 are COTA only.
+
+This is after filtering out genes that are chr X, M, Y and not of biotype protein coding / lincRNA.
+
+I also looked at the genes that were missing from our reference tables, but this was negligible (500–900 genes).
+
+## Next Course of Action
+
+Given this, I decided to do the FDA target enrichment analysis three ways:
+
+1. The gene universe that Tian used (`$GENE` column from the UKBB burden test results)
+    - OR: 1.27
+    - P-value: 0.36
+2. The gene universe we used in COTA (genes from the p.trans matrices)
+    - OR: 1.53
+    - P-value: 0.24
+3. The intersection of the Tian gene universe and our COTA gene universe
+    - OR: 1.32
+    - P-value: 0.34
