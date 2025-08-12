@@ -19,3 +19,4 @@ This is my research log tracking my daily progress on COTA & mediation analyses.
 | 2024-07-01 | [View](2024-07-01.html)  |
 | 2024-07-02 | [View](2024-07-02.html)  |
 | Week 4 | [View](week-4.html) |
+| Week 7 | [View](week-7.html) |
