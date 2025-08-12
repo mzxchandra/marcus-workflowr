@@ -1,0 +1,24 @@
+---
+title: "Week 7"
+author: "Marcus"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+---
+
+Task: Go through FDA drug targets list and understand if they are MDD relevant. Prioritize gene2s that show up in several COTA analyses.
+
+I wrote a script to get the drug descriptions from PubChem given the drug names. Then I passed each description to a LLM to assign whether or not the drug is MDD relevant. I have a CSV here now with all the gene drug interactions and columns with the description of the drug and whether or not it's MDD relevant (most are not) `COTA_gene_drug_investigation`.
+
+Designed a Fisher test to see if COTA core genes were more likely to be FDA drug targets (any type of drugs).
+
+Observed overlap (# COTA gene2s that are FDA targets) = 60
+
+Results:
+- Odds ratio 1.158 (COTA core genes 15.8% more likely to be drug targets)
+- P value = 0.17 (not significant)
+
+Using the sampling method
+
+Results
+- normal_p_value = 0.1726 → 17.3% probability of seeing an overlap as large or larger than 60 by chance.
+- empirical_p_value = 0.1838 → in ~18.4% of random trials, the overlap was ≥ 60.
